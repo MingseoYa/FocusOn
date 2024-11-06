@@ -4,6 +4,7 @@ import { useMutation } from "@apollo/client";
 import { CREATE_TRAVEL_PRODUCT } from "./queries";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { remove } from "lodash";
 
 const useProductsWirte = (props) => {
   const [inputTag, setInputTag] = useState("");
@@ -18,12 +19,19 @@ const useProductsWirte = (props) => {
   const addTag = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      // !event.nativeEvent.isComposing => 입력이 완료 되었으면 (keydown의 한글 중복 문제 해결!!)
+      // !event.nativeEvent.isComposing => 입력이 완료 되었으면
+      // keydown의 한글 중복 문제 해결!!
       if (inputTag.trim() !== "" && !event.nativeEvent.isComposing) {
         setTags((prev) => [...prev, `#${inputTag}`]);
         setInputTag(""); // 인풋 초기화
       }
     }
+  };
+
+  // 태그 삭제
+  const removeTag = (removeId) => {
+    console.log(removeId);
+    setTags(tags.filter((_, index) => index !== removeId));
   };
 
   const methods = useForm({
@@ -57,6 +65,7 @@ const useProductsWirte = (props) => {
     methods,
     onChangeTag,
     addTag,
+    removeTag,
     onClickSubmit,
   };
 };

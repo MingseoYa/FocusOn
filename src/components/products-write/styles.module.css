@@ -126,3 +126,17 @@
   padding: 4px 8px;
   border-radius: 12px;
 }
+
+.remove_tag {
+  stroke-width: 2.5px;
+  cursor: pointer;
+  display: inline;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  margin-left: 4px;
+}
+
+.remove_tag:hover {
+  background-color: white;
+}

@@ -9,10 +9,18 @@ import { TextareaSoftMFull } from "@/commons/ui/textarea";
 import { ButtonSoftMFitMain } from "@/commons/ui/button";
 import { LinkCancel } from "@/commons/ui/link";
 import ErrorMessage from "@/commons/ui/error";
+import { X } from "lucide-react";
 
 export default function ProductsWrite(props) {
-  const { methods, onClickSubmit, onChangeTag, addTag, tags, inputTag } =
-    useProductsWirte(props);
+  const {
+    methods,
+    onClickSubmit,
+    onChangeTag,
+    addTag,
+    removeTag,
+    tags,
+    inputTag,
+  } = useProductsWirte(props);
 
   return (
     <div className={styles.post_page_body}>
@@ -84,6 +92,10 @@ export default function ProductsWrite(props) {
                 {tags.map((tag, index) => (
                   <span key={index} className={styles.tag}>
                     {tag}
+                    <X
+                      onClick={() => removeTag(index)}
+                      className={styles.remove_tag}
+                    />
                   </span>
                 ))}
               </div>
