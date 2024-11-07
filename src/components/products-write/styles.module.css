@@ -41,9 +41,20 @@
   color: #f66a6a;
 }
 
-.search_group_zip_code {
+.zipcode_search {
   display: flex;
   gap: 8px;
+}
+
+.address {
+  display: flex;
+  gap: 40px;
+}
+.address_input {
+  display: flex;
+  width: 396px;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .input_box_zip_code {
@@ -140,3 +151,5 @@
 .remove_tag:hover {
   background-color: white;
 }
+
+/* 주소 */

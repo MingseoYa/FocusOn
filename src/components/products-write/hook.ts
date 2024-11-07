@@ -4,7 +4,6 @@ import { useMutation } from "@apollo/client";
 import { CREATE_TRAVEL_PRODUCT } from "./queries";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { remove } from "lodash";
 
 const useProductsWirte = (props) => {
   const [inputTag, setInputTag] = useState("");
@@ -40,9 +39,9 @@ const useProductsWirte = (props) => {
   });
 
   const onClickSubmit = async (data) => {
-    console.log(data);
     try {
       const result = await createTravelproduct({
+        // TODO: 스프레드연산자써서 짧게 만들어주기
         variables: {
           createTravelproductInput: {
             name: data.name,
@@ -50,6 +49,12 @@ const useProductsWirte = (props) => {
             contents: data.contents,
             price: data.price,
             tags: tags,
+            travelproductAddress: {
+              zipcode: data.zipcode,
+              addressDetail: data.addressDetail,
+              lat: data.lat,
+              lng: data.lng,
+            },
           },
         },
       });
