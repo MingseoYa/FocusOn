@@ -12,7 +12,7 @@ export default function BoardsListContainer() {
   return (
     <div className={styles.boards_list_page_body}>
       <div className={styles.boards_list_page}>
-        <Header>트립토크 게시판</Header>
+        <Header>포커스톡 게시판</Header>
         {/* 검색 컴포넌트 */}
         <BoardsListSearch
           countRefetch={countRefetch}

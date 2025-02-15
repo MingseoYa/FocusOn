@@ -4,7 +4,7 @@ export default function KakaoMap({ lat, lng }) {
   const [_, error] = useKakaoLoader({
     appkey: process.env.NEXT_PUBLIC_KAKAO_MAP_KEY!, // 발급 받은 APPKEY
   });
-
+  console.log("mapkey:", process.env.NEXT_PUBLIC_KAKAO_MAP_KEY!);
   if (error) return <div>Error</div>;
 
   // 지도 마커 커스텀

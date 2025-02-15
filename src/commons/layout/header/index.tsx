@@ -36,7 +36,7 @@ const Navigation = () => {
             href="/products"
             className={isProducts ? styles.active_menu : styles.menu}
           >
-            포커스 마켓
+            숙박권 구매
           </Link>
           <Link
             href="/mypage"

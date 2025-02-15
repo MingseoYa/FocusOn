@@ -1,7 +1,7 @@
 import { gql, GraphQLClient } from "graphql-request";
 
 const RESTORE_ACCESS_TOKEN = gql`
-  mutation resotreAccessToken {
+  mutation restoreAccessToken {
     restoreAccessToken {
       accessToken
     }

@@ -21,6 +21,7 @@ import {
 import Link from "next/link";
 import { useQuery } from "@apollo/client";
 import { FETCH_PRODUCTS } from "./queries";
+import { focusOnServices, top3Services } from "./mock";
 
 const categories = [
   { name: "개발", icon: <Code /> },
@@ -57,139 +58,6 @@ export default function ProductsList() {
   const onClickCategory = (category) => {
     setActiveCategory(category.name);
   };
-
-  const top3Services = [
-    {
-      id: 1,
-      name: "프리미엄 로고 디자인",
-      tags: ["디자인", "로고"],
-      price: "50,000원",
-      image: "/images/beach.jpg",
-      likes: 120,
-      rating: 4.8,
-    },
-    {
-      id: 2,
-      name: "SNS 마케팅 패키지",
-      tags: ["마케팅", "SNS"],
-      price: "30,000원",
-      image: "/images/beach.jpg",
-      likes: 85,
-      rating: 4.5,
-    },
-    {
-      id: 3,
-      name: "전문 영어 번역 서비스",
-      tags: ["번역", "영어"],
-      price: "40,000원",
-      image: "/images/beach.jpg",
-      likes: 200,
-      rating: 4.9,
-    },
-  ];
-
-  const focusOnServices = [
-    {
-      id: 1,
-      name: "React 웹 개발",
-      tags: ["웹개발", "React"],
-      price: "20,000원",
-      available: true,
-      image: "/images/product.jpg",
-      author: { name: "김개발", image: "/images/profile.png" },
-      likes: 50,
-      rating: 4.7,
-    },
-    {
-      id: 2,
-      name: "UI/UX 디자인",
-      tags: ["그래픽디자인", "UI/UX"],
-      price: "30,000원",
-      available: false,
-      image: "/images/product.jpg",
-      author: {
-        name: "이디자인",
-        image: "/images/profile.png",
-      },
-      likes: 75,
-      rating: 4.6,
-    },
-    {
-      id: 3,
-      name: "유튜브 영상 제작",
-      tags: ["콘텐츠제작", "영상"],
-      price: "25,000원",
-      available: true,
-      image: "/images/product.jpg",
-      author: { name: "박영상", image: "/images/profile.png" },
-      likes: 30,
-      rating: 4.4,
-    },
-    {
-      id: 4,
-      name: "브랜드 마케팅 전략",
-      tags: ["마케팅", "브랜딩"],
-      price: "35,000원",
-      available: false,
-      image: "/images/product.jpg",
-      author: {
-        name: "최마케팅",
-        image: "/images/profile.png",
-      },
-      likes: 100,
-      rating: 4.8,
-    },
-    {
-      id: 5,
-      name: "일본어 통번역",
-      tags: ["번역", "일본어"],
-      price: "40,000원",
-      available: true,
-      image: "/images/product.jpg",
-      author: { name: "정번역", image: "/images/profile.png" },
-      likes: 60,
-      rating: 4.9,
-    },
-    {
-      id: 6,
-      name: "클라우드 IT 컨설팅",
-      tags: ["IT컨설팅", "클라우드"],
-      price: "22,000원",
-      available: true,
-      image: "/images/product.jpg",
-      author: {
-        name: "강컨설팅",
-        image: "/images/profile.png",
-      },
-      likes: 45,
-      rating: 4.5,
-    },
-    {
-      id: 7,
-      name: "작곡 및 편곡",
-      tags: ["음악", "작곡"],
-      price: "28,000원",
-      available: false,
-      image: "/images/product.jpg",
-      author: { name: "송작곡", image: "/images/profile.png" },
-      likes: 80,
-      rating: 4.7,
-    },
-    {
-      id: 8,
-      name: "데이터 시각화",
-      tags: ["데이터분석", "시각화"],
-      price: "33,000원",
-      available: true,
-      image: "/images/product.jpg",
-      author: {
-        name: "한데이터",
-        image: "/images/profile.png",
-      },
-      likes: 55,
-      rating: 4.6,
-    },
-  ];
 
   const filteredServices = focusOnServices.filter(
     (service) =>
@@ -276,13 +144,6 @@ export default function ProductsList() {
         </div>
         {/* 검색 창 */}
         <div className={styles.search_area}>
-          <RangePicker
-            className={styles.date_picker}
-            placeholder={["YYYY.MM.DD", "YYYY.MM.DD"]}
-            format={dateFormat}
-            // onChange={onChangeDate}
-          />
-
           <div className={styles.search_bar_box}>
             <Image
               src="/images/search.png"
